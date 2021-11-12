@@ -10,7 +10,7 @@ sealed class Screen(val route: String) {
     object MainScreen : Screen("main_screen")
     object DetailScreen : Screen("detail_screen")
 
-    // /{arg1}/{arg2}
+    // /{arg1}/{arg2}/{arg3}
     // using strings
     fun withRequiredArgs(vararg value: String): String {
         return buildString {
@@ -21,7 +21,7 @@ sealed class Screen(val route: String) {
         }
     }
 
-    // /{arg1}/{arg2}
+    // /{arg1}/{arg2}/{arg3}
     fun withRequiredArgs(vararg value: NavArg.Required): String {
         return buildString {
             append(route)
@@ -31,7 +31,7 @@ sealed class Screen(val route: String) {
         }
     }
 
-    // ?arg1={arg1}/arg2={arg2}
+    // ?arg1={arg1}/arg2={arg2}/arg3={arg3}
     fun withOptionalArgs(vararg args: NavArg.Optional): String {
         var firstArg: Boolean = true
 
@@ -66,10 +66,14 @@ sealed class Screen(val route: String) {
     }
 
     fun withUrlArg(urlArg: String): String {
-        return URLEncoder.encode(
-            urlArg, // http://alphaone.me/
-            StandardCharsets.UTF_8.toString()
-        )
+        return buildString {
+            append(route)
+            append("/")
+            append(URLEncoder.encode(
+                urlArg, // http://alphaone.me/
+                StandardCharsets.UTF_8.toString()
+            ))
+        }
     }
 
 }
