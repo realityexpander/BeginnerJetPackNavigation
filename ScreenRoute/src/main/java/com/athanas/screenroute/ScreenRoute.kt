@@ -149,6 +149,6 @@ fun main() {
     println("withUrlArg=$out")
     println("withUrlArg decoded=${URLDecoder.decode(out, StandardCharsets.UTF_8.toString())}")
     assert(out == "detail_screen/http%3A%2F%2Falphaone.me%2F")
-    assert(URLDecoder.decode(out, StandardCharsets.UTF_8.toString()) == "http://alphaone.me/")
+    assert(URLDecoder.decode(out, StandardCharsets.UTF_8.toString()) == "detail_screen/http://alphaone.me/")
 
 }
