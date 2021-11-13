@@ -2,6 +2,7 @@ package com.example.beginnerjetpacknavigation
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
@@ -98,11 +99,11 @@ fun DetailScreen(userName: String?, lastName: String?, screen: String?) {
                 .fillMaxWidth()
                 .padding(horizontal = 50.dp)
         ) {
-            Text(text = "Hello, $userName")
+            Text(text = "Hello, $userName", color=MaterialTheme.colors.onSurface)
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "lastName=$lastName")
+            Text(text = "lastName=$lastName", color=MaterialTheme.colors.onSurface)
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Screen=$screen")
+            Text(text = "Screen=$screen", color=MaterialTheme.colors.onSurface)
         }
     }
 }
