@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets
 
 open class ScreenRoute(val route: String) {
 
-    // /{arg1}/{arg2}/{arg3}
+    // route format: screen_name/{arg1}/{arg2}/{arg3}
     // using strings
     fun withRequiredArgs(vararg value: String): String {
         return buildString {
@@ -17,7 +17,7 @@ open class ScreenRoute(val route: String) {
         }
     }
 
-    // /{arg1}/{arg2}/{arg3}
+    // route format: screen_name/{arg1}/{arg2}/{arg3}
     fun withRequiredArgs(vararg value: NavArg.Required): String {
         return buildString {
             append(route)
@@ -27,7 +27,7 @@ open class ScreenRoute(val route: String) {
         }
     }
 
-    // ?arg1={arg1}/arg2={arg2}/arg3={arg3}
+    // route format: screen_name?arg1={arg1}/arg2={arg2}/arg3={arg3}
     fun withOptionalArgs(vararg args: NavArg.Optional): String {
         var firstArg: Boolean = true
 
@@ -41,7 +41,7 @@ open class ScreenRoute(val route: String) {
         }
     }
 
-    // ?arg1={arg1}/arg2/arg3={arg3}/arg4
+    // route format: screen_name?arg1={arg1}/arg2/arg3={arg3}/arg4
     fun withArgs(vararg args: NavArg): String {
         var firstArg: Boolean = true
 
@@ -61,6 +61,7 @@ open class ScreenRoute(val route: String) {
         }
     }
 
+    // route format: screen_name/http%3A%2F%2Falphaone.me%2F
     fun withUrlArg(urlArg: String): String {
         return buildString {
             append(route)
