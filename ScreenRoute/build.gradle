@@ -14,8 +14,8 @@ afterEvaluate {
         publications {
             library(MavenPublication) {
                 groupId = 'com.github.realityexpander'
-                artifactId = "$project.name"
-//                artifactId = "screenroute"
+//                artifactId = "$project.name" // BeginnerJetPackNavigation
+                artifactId = "screenroute"
                 version = '1.0'
             }
         }
