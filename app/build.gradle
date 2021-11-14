@@ -58,7 +58,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation 'androidx.activity:activity-compose:1.4.0'
     implementation "androidx.navigation:navigation-compose:$navigation_compose_version"
-    implementation project(path: ':ScreenRoute')
+    implementation project(path: ':ScreenRoute') // local to project
 
 
     testImplementation 'junit:junit:4.+'

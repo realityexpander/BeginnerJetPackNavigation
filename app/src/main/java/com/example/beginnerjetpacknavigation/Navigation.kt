@@ -1,10 +1,7 @@
 package com.example.beginnerjetpacknavigation
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -68,7 +65,8 @@ fun MainScreen(navController: NavController) {
             onValueChange = {
                 text = it
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            colors = TextFieldDefaults.textFieldColors(textColor = MaterialTheme.colors.onSurface)
         )
         Spacer(modifier=Modifier.height(8.dp))
         Button(onClick = {

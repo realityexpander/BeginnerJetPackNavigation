@@ -4,8 +4,10 @@ import java.net.URLDecoder
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
-open class ScreenRoute(val route: String) {
+// To run from command line: kotlin -cp ScreenRoute.jar com.athanas.screenroute.Main
 
+
+open class ScreenRoute(val route: String) {
     // route format: screen_name/{arg1}/{arg2}/{arg3}
     // using strings
     fun withRequiredArgs(vararg value: String): String {
@@ -114,7 +116,7 @@ sealed class ___ScreenTest(route:String): ScreenRoute(route) {
 }
 
 // Test ScreenRoute class (make sure VM has -ea turned on to see assertions)
-fun main() {
+fun main(args: Array<String> =  arrayOf()) {
     var out = ""
 
     out = ___ScreenTest.MainScreen.withRequiredArgs("abc", "123", "xyz")
@@ -151,4 +153,13 @@ fun main() {
     assert(out == "detail_screen/http%3A%2F%2Falphaone.me%2F")
     assert(URLDecoder.decode(out, StandardCharsets.UTF_8.toString()) == "detail_screen/http://alphaone.me/")
 
+}
+
+class Main { // Must have a Main class to run from kotlin command line
+    companion object {
+        @JvmStatic fun main(args: Array<String>) {
+            println("Testing ScreenRoute library....")
+            main()
+        }
+    }
 }
