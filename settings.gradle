@@ -4,8 +4,9 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        maven { url 'https://jitpack.io' } // Add to get access to JitPack libraries
     }
 }
 rootProject.name = "BeginnerJetPackNavigation"
 include ':app'
-include ':ScreenRoute'
+//include ':ScreenRoute'
